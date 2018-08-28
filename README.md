@@ -1,24 +1,33 @@
-# README
+# Active Admin Nested Namespaces Example 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the example of https://github.com/siutin/activeadmin-nested-namespaces
 
-Things you may want to cover:
+# Getting Started
 
-* Ruby version
 
-* System dependencies
+Open a terminal and follow the instruction below:
 
-* Configuration
+```
 
-* Database creation
+# Download the project source code
+git clone https://github.com/siutin/activeadmin-nested-namespaces-example.git
 
-* Database initialization
+# Setup
+cd activeadmin-nested-namespaces-example
+bundle install 
+bundle exec rake db:migrate
+bundle exec rake db:seed
 
-* How to run the test suite
+# Start a development server instance
+bundle exec rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
+You can now check all routes via `http://localhost:3000/rails/info/routes`
 
-* ...
+## Contributors
+ [Martin Chan](https://twitter.com/osiutino) - creator 
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
