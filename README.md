@@ -2,6 +2,8 @@
 
 This is the example of https://github.com/siutin/activeadmin-nested-namespaces
 
+![demo](https://github.com/siutin/activeadmin-nested-namespaces-example/blob/master/demo.gif)
+
 # Getting Started
 
 
