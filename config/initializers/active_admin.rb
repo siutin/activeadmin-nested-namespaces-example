@@ -54,7 +54,13 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_admin_user!
+  config.authentication_method = Proc.new do |name_path|
+    if [config.default_namespace, :root].include?(name_path.first)
+      :authenticate_admin_user!
+    else
+      "authenticate_#{name_path.map(&:to_s).join('_').underscore}_admin_user!".to_sym
+    end
+  end
 
   # == User Authorization
   #
@@ -86,7 +92,13 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  config.current_user_method = :current_admin_user
+  config.current_user_method = Proc.new do |name_path|
+    if [config.default_namespace, :root].include?(name_path.first)
+      :current_admin_user
+    else
+      "current_#{name_path.map(&:to_s).join('_').underscore}_admin_user".to_sym
+    end
+  end
 
   # == Logging Out
   #
@@ -98,7 +110,13 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = Proc.new do |name_path|
+    if [config.default_namespace, :root].include?(name_path.first)
+      :destroy_admin_user_session_path
+    else
+      "destroy_#{name_path.map(&:to_s).join('_').underscore}_admin_user_session_path".to_sym
+    end
+  end
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
