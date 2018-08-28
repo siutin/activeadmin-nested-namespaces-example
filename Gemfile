@@ -51,3 +51,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'activeadmin', '~> 1'
+gem 'activeadmin-nested-namespaces', '~> 0.1'
